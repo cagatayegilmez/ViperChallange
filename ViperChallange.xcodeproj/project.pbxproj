@@ -14,6 +14,7 @@
 		52C1D4EC2F4B1E1A00FA8A41 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C1D4EB2F4B1E1300FA8A41 /* LoadingView.swift */; };
 		52C1D4EF2F4B1E4500FA8A41 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 52C1D4EE2F4B1E4500FA8A41 /* Lottie */; };
 		52C1D4F12F4B1E6800FA8A41 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 52C1D4F02F4B1E6800FA8A41 /* loading.json */; };
+		52C1D4FB2F4B49F900FA8A41 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C1D4FA2F4B49F500FA8A41 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		52C1D4F72F4B43D300FA8A41 /* ProductDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailResponse.swift; sourceTree = "<group>"; };
 		52C1D4F82F4B455100FA8A41 /* ListingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingRequest.swift; sourceTree = "<group>"; };
 		52C1D4F92F4B469100FA8A41 /* DetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRequest.swift; sourceTree = "<group>"; };
+		52C1D4FA2F4B49F500FA8A41 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			children = (
 				52C1D4CA2F4B19B500FA8A41 /* AppDelegate.swift */,
 				52C1D4CF2F4B19B500FA8A41 /* SceneDelegate.swift */,
+				52C1D4FA2F4B49F500FA8A41 /* Extensions.swift */,
 				52C1D4EB2F4B1E1300FA8A41 /* LoadingView.swift */,
 				52C1D4F02F4B1E6800FA8A41 /* loading.json */,
 				52C1D4CC2F4B19B500FA8A41 /* Info.plist */,
@@ -339,6 +342,7 @@
 				52C1D4D32F4B19B500FA8A41 /* AppDelegate.swift in Sources */,
 				52C1D4D42F4B19B500FA8A41 /* SceneDelegate.swift in Sources */,
 				52C1D4EC2F4B1E1A00FA8A41 /* LoadingView.swift in Sources */,
+				52C1D4FB2F4B49F900FA8A41 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
