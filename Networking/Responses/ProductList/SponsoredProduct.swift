@@ -1,0 +1,30 @@
+//
+//  SponsoredProduct.swift
+//  ViperChallange
+//
+//  Created by Çağatay Eğilmez on 22.02.2026.
+//
+
+struct SponsoredProduct: Decodable {
+
+    let id: Int
+    let title: String
+    let image: String
+    let price: Double
+    let instantDiscountPrice: Double
+    let rate: Double
+
+    var imageUrl: URL {
+        URL(string: image) ?? URL(string: "https://picsum.photos/id/0/5000/3333")
+    }
+
+    var discountPercent: Int {
+        guard price > 0 else {
+            return 0
+        }
+
+        let discountAmount = price - instantDiscountPrice
+        let percentage = (discountAmount / price) * 100
+        return Int(percentage.rounded())
+    }
+}
