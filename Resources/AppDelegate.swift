@@ -7,6 +7,11 @@
 
 import UIKit
 
+private enum Constant {
+
+    static let configName = "Default Configuration"
+}
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -21,10 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      configurationForConnecting connectingSceneSession: UISceneSession,
                      options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        let config = UISceneConfiguration(
-            name: "Default Configuration",
-            sessionRole: connectingSceneSession.role
-        )
+        let config = UISceneConfiguration(name: Constant.configName,
+                                          sessionRole: connectingSceneSession.role)
         config.delegateClass = SceneDelegate.self
         return config
     }
