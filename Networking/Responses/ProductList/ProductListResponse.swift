@@ -5,6 +5,8 @@
 //  Created by Çağatay Eğilmez on 22.02.2026.
 //
 
+import Foundation
+
 struct ProductListResponse: Decodable {
 
     let page: String

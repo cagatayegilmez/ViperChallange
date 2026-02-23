@@ -5,6 +5,8 @@
 //  Created by Çağatay Eğilmez on 22.02.2026.
 //
 
+import Foundation
+
 struct SponsoredProduct: Decodable {
 
     let id: Int
@@ -12,10 +14,14 @@ struct SponsoredProduct: Decodable {
     let image: String
     let price: Double
     let instantDiscountPrice: Double
-    let rate: Double
+    let rate: Double?
 
-    var imageUrl: URL {
-        URL(string: image) ?? URL(string: "https://picsum.photos/id/0/5000/3333")
+    var imageUrl: URL? {
+        guard let url = URL(string: image) else {
+            return URL(string: "https://picsum.photos/id/0/5000/3333")
+        }
+
+        return url
     }
 
     var discountPercent: Int {
