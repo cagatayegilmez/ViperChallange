@@ -5,6 +5,8 @@
 //  Created by Çağatay Eğilmez on 22.02.2026.
 //
 
+import Foundation
+
 struct ProductDetailResponse: Decodable {
 
     let title: String
@@ -16,12 +18,9 @@ struct ProductDetailResponse: Decodable {
     let sellerName: String
 
     var imageUrls: [URL] {
-        let response: [URL] = []
-        images.forEach { image in
-            response.append(URL(string: image)
-                            ?? URL(string: "https://picsum.photos/id/0/5000/3333"))
+        images.compactMap {
+            URL(string: $0)
         }
-        return response
     }
 
     var discountPercent: Int {

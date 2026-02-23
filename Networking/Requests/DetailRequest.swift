@@ -5,9 +5,11 @@
 //  Created by Çağatay Eğilmez on 22.02.2026.
 //
 
-struct ListingRequest: APIRequest {
+import Foundation
 
-    typealias Response = ProductListResponse
+struct DetailRequest: APIRequest {
+
+    typealias Response = ProductDetailResponse
 
     var headers: [String: String]?
     let baseUrl: URL = Environment.rootURL
@@ -15,10 +17,10 @@ struct ListingRequest: APIRequest {
     var path: String {
         "product"
     }
-    var queryParameters: [URLQueryItem] = []
+    let queryParameters: [URLQueryItem]
 
     init(id: Int) {
         queryParameters = [URLQueryItem(name: "productId",
-                                        value: id)]
+                                        value: "\(id)")]
     }
 }
