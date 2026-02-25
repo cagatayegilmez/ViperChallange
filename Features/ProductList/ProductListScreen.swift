@@ -14,8 +14,6 @@ struct ProductListScreen: View {
     let onReachEnd: () -> Void
     let onRefresh: () -> Void
 
-    private let grid = [GridItem(.flexible()), GridItem(.flexible())]
-
     var body: some View {
         VStack {
         }

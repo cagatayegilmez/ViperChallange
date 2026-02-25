@@ -72,7 +72,7 @@ final class ProductListInteractor: ProductListInteractorProtocol {
                 let response = try await repo.fetchListing(page: page)
                 let np = response.nextPage.flatMap(Int.init)
 
-                if isNext == false {
+                if !isNext {
                     self.sponsoredCache = response.sponsoredProducts
                     self.productsCache = response.products
                 } else {
@@ -88,20 +88,16 @@ final class ProductListInteractor: ProductListInteractorProtocol {
                                                        canLoadMore: np != nil)
 
                 await MainActor.run {
-                    if isNext {
-                        self.output?.didLoadNext(result: .success(snapshot))
-                    } else {
-                        self.output?.didLoadInitial(result: .success(snapshot))
-                    }
+                    isNext
+                    ? self.output?.didLoadNext(result: .success(snapshot))
+                    : self.output?.didLoadInitial(result: .success(snapshot))
                 }
             } catch {
                 self.isLoading = false
                 await MainActor.run {
-                    if isNext {
-                        self.output?.didLoadNext(result: .failure(error))
-                    } else {
-                        self.output?.didLoadInitial(result: .failure(error))
-                    }
+                    isNext
+                    ? self.output?.didLoadNext(result: .failure(error))
+                    : self.output?.didLoadInitial(result: .failure(error))
                 }
             }
         }
