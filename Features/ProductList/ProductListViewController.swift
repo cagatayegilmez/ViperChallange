@@ -16,7 +16,6 @@ final class ProductListViewController: UIViewController, ProductListViewProtocol
     init(presenter: ProductListPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
-        self.title = "Listing"
     }
 
     @available(*, unavailable)
@@ -41,6 +40,16 @@ final class ProductListViewController: UIViewController, ProductListViewProtocol
         addSwiftUIView(screen)
 
         presenter.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     func render(_ model: ProductListViewModel) {

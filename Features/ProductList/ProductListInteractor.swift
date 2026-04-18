@@ -73,10 +73,10 @@ final class ProductListInteractor: ProductListInteractorProtocol {
                 let np = response.nextPage.flatMap(Int.init)
 
                 if !isNext {
-                    self.sponsoredCache = response.sponsoredProducts
-                    self.productsCache = response.products
+                    self.sponsoredCache = response.sponsoredProducts ?? []
+                    self.productsCache = response.products ?? []
                 } else {
-                    self.productsCache.append(contentsOf: response.products)
+                    self.productsCache.append(contentsOf: response.products ?? [])
                 }
 
                 self.currentPage = page
