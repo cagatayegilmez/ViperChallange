@@ -9,14 +9,18 @@ import Foundation
 
 struct ProductListResponse: Decodable {
 
-    let page: String
+    let page: String?
     let nextPage: String?
-    let published_at: String
-    let sponsoredProducts: [SponsoredProduct]
-    let products: [ListProduct]
+    let published_at: String?
+    let sponsoredProducts: [SponsoredProduct]?
+    let products: [ListProduct]?
 
     var publishDate: Date {
-        Self.iso8601WithFractional.date(from: published_at)
+        guard let published_at else {
+            return .distantPast
+        }
+
+        return Self.iso8601WithFractional.date(from: published_at)
         ?? Self.iso8601NoFractional.date(from: published_at)
         ?? .distantPast
     }

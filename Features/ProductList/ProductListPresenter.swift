@@ -72,24 +72,28 @@ extension ProductListPresenter: ProductListInteractorOutput {
             current.errorMessage = nil
 
             current.sponsored = snap.sponsored.map {
-                ProductCardViewModel(id: $0.id,
-                                     title: $0.title,
-                                     imageURL: $0.imageUrl,
-                                     priceText: PriceFormatter.format($0.price),
-                                     discountedPriceText: PriceFormatter.format($0.instantDiscountPrice),
+                ProductCardViewModel(id: $0.id ?? .zero,
+                                     title: $0.title ?? "",
+                                     imageURL: $0.imageUrl ?? URL(string: ""),
+                                     priceText: PriceFormatter.format($0.price
+                                                                      ?? .zero),
+                                     discountedPriceText: PriceFormatter.format($0.instantDiscountPrice
+                                                                                ?? .zero),
                                      discountText: "%\($0.discountPercent)",
-                                     rateText: String(format: "%.1f", $0.rate ?? 0.0),
+                                     rateText: String(format: "%.1f", $0.rate ?? .zero),
                                      sellerName: "")
             }
 
             current.products = snap.products.map {
-                ProductCardViewModel(id: $0.id,
-                                     title: $0.title,
-                                     imageURL: $0.imageUrl,
-                                     priceText: PriceFormatter.format($0.price),
-                                     discountedPriceText: PriceFormatter.format($0.instantDiscountPrice),
+                ProductCardViewModel(id: $0.id ?? .zero,
+                                     title: $0.title ?? "",
+                                     imageURL: $0.imageUrl ?? URL(string: ""),
+                                     priceText: PriceFormatter.format($0.price
+                                                                      ?? .zero),
+                                     discountedPriceText: PriceFormatter.format($0.instantDiscountPrice
+                                                                                ?? .zero),
                                      discountText: "%\($0.discountPercent)",
-                                     rateText: String(format: "%.1f", $0.rate),
+                                     rateText: String(format: "%.1f", $0.rate ?? .zero),
                                      sellerName: $0.sellerName)
             }
 
@@ -113,13 +117,15 @@ extension ProductListPresenter: ProductListInteractorOutput {
 
             current.products = snap.products.map {
                 ProductCardViewModel(
-                    id: $0.id,
-                    title: $0.title,
-                    imageURL: $0.imageUrl,
-                    priceText: PriceFormatter.format($0.price),
-                    discountedPriceText: PriceFormatter.format($0.instantDiscountPrice),
+                    id: $0.id ?? .zero,
+                    title: $0.title ?? "",
+                    imageURL: $0.imageUrl ?? URL(string: ""),
+                    priceText: PriceFormatter.format($0.price
+                                                     ?? .zero),
+                    discountedPriceText: PriceFormatter.format($0.instantDiscountPrice
+                                                               ?? .zero),
                     discountText: "%\($0.discountPercent)",
-                    rateText: String(format: "%.1f", $0.rate),
+                    rateText: String(format: "%.1f", $0.rate ?? .zero),
                     sellerName: $0.sellerName
                 )
             }

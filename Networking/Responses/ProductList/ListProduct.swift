@@ -9,16 +9,17 @@ import Foundation
 
 struct ListProduct: Decodable {
 
-    let id: Int
-    let title: String
-    let image: String
-    let price: Double
-    let instantDiscountPrice: Double
-    let rate: Double
-    let sellerName: String
+    let id: Int?
+    let title: String?
+    let image: String?
+    let price: Double?
+    let instantDiscountPrice: Double?
+    let rate: Double?
+    let sellerName: String?
 
     var imageUrl: URL? {
-        guard let url = URL(string: image) else {
+        guard let image,
+                let url = URL(string: image) else {
             return URL(string: "https://picsum.photos/id/0/5000/3333")
         }
 
@@ -26,7 +27,9 @@ struct ListProduct: Decodable {
     }
 
     var discountPercent: Int {
-        guard price > 0 else {
+        guard let price,
+              let instantDiscountPrice,
+              price > 0 else {
             return 0
         }
 

@@ -9,22 +9,28 @@ import Foundation
 
 struct ProductDetailResponse: Decodable {
 
-    let title: String
-    let description: String
-    let images: [String]
-    let price: Double
-    let instantDiscountPrice: Double
-    let rate: Double
-    let sellerName: String
+    let title: String?
+    let description: String?
+    let images: [String]?
+    let price: Double?
+    let instantDiscountPrice: Double?
+    let rate: Double?
+    let sellerName: String?
 
     var imageUrls: [URL] {
-        images.compactMap {
+        guard let images else {
+            return []
+        }
+
+        return images.compactMap {
             URL(string: $0)
         }
     }
 
     var discountPercent: Int {
-        guard price > 0 else {
+        guard let price,
+              let instantDiscountPrice,
+              price > 0 else {
             return 0
         }
 
